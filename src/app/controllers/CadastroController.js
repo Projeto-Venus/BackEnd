@@ -4,7 +4,7 @@ import Usuario from "../models/Usuario";
 class CadastroController {
 
     async create(req, res) {
-        const { nome, nome_social, num_cartao_nacional_saude, cpf, data_nascimento, raca, naturalidade, endereco, bairro, cidade, estado, cep, id_referencia, id_usuario } = req.body;
+        const { nome, nome_social, num_cartao_nacional_saude, cpf, data_nascimento, raca, naturalidade, endereco, bairro, cidade, estado, cep, id_referencia, id_usuario, celular, email, whatsapp, acessa_internet, mensagem_celular, nome_mae, nome_representante, beneficio, num_nis, profissao, comodos, rede_esgoto, coleta_lixo, distancia_moradia, religiao, escolaridade, estado_civil, renda, condicao_moradia, agua_domiciliar,  } = req.body;
 
        const usuarioExiste = await Usuario.findByPk(id_usuario);
 

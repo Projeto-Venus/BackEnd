@@ -4,23 +4,31 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.addColumn('cadastros',
+    return queryInterface.addColumn('cadastros', 'celular',
 
-      {
-        celular: {
+      
+        {
           type: Sequelize.STRING,
           allowNull: false,
-        },
+        })
 
-        email: {
+        queryInterface.addColumn('cadastros', 'email',
+
+        {
+          type: Sequelize.STRING,
+          allowNull: false,
+        })
+
+        queryInterface.addColumn('cadastros', 'email',
+        {
         type: Sequelize.STRING,
         allowNull: false,
-        },
+        })
 
-        whatsapp: {
+        queryInterface.addColumn('cadastros', 'whatsapp': {
           type: Sequelize.STRING,
           allowNull: false
-        },
+        })
 
         acessa_internet: {
           type: Sequelize.STRING,
