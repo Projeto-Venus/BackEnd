@@ -4,15 +4,17 @@ class UsuarioController {
 
    //criando login
    async create(req, res) {
-      const { cpf, senha } = req.body;
+      const { cpf, senha_hash } = req.body;
 
-      if (!cpf || !senha) return res.status(400).json({ error: 'Bad Request' })
+      if (!cpf || !senha_hash) return res.status(400).json({ error: 'Bad Request' })
       
       //verificar cpf válido
       
       const userExists = await Usuario.findOne({
          where: {cpf}
       })
+
+      /*if(!userExists) {return res.status(400).json({error: 'Usuário não encontrado'})} */ //precisa ser feito a verificação se o usuário n foi encontrado? ou o proximo if já resolve a situação?
 
       if(userExists) return res.status(400).json({error: 'Já existe um usuário com este cpf'})
 
