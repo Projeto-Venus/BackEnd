@@ -19,144 +19,159 @@ module.exports = {
           allowNull: false,
         })
 
-        queryInterface.addColumn('cadastros', 'email',
+        queryInterface.addColumn('cadastros', 'whatsapp',
         {
-        type: Sequelize.STRING,
-        allowNull: false,
+          type: Sequelize.BOOLEAN,
+          allowNull: false,
         })
 
-        queryInterface.addColumn('cadastros', 'whatsapp': {
-          type: Sequelize.STRING,
-          allowNull: false
+        queryInterface.addColumn('cadastros', 'acessa_internet',
+        {
+          type: Sequelize.BOOLEAN,
+          allowNull: true,
         })
 
-        acessa_internet: {
-          type: Sequelize.STRING,
-          allowNull: true
-        },
+        queryInterface.addColumn('cadastros', 'mensagem_celular', {
+          type: Sequelize.BOOLEAN,
+          allowNull: false,
+        })
 
-        mensagem_celular: {
+        queryInterface.addColumn('cadastros', 'nome_mae',
+        {
           type: Sequelize.STRING,
-          allowNull: false
-        },
+          allowNull: false,
+        })
 
-        nome_mae: {
+        queryInterface.addColumn('cadastros', 'nome_representante',
+        {
           type: Sequelize.STRING,
-          allowNull: false
-        },
+          allowNull: false,
+        })
 
-        nome_representante: {
+        queryInterface.addColumn('cadastros', 'beneficio',
+        {
           type: Sequelize.STRING,
-          allowNull: false
-        },
+          allowNull: false,
+        })
 
-        beneficio: {
+        queryInterface.addColumn('cadastros', 'num_nis',
+        {
           type: Sequelize.STRING,
-          allowNull: false
-        },
+          allowNull: false,
+        })
 
-        num_nis: {
+        queryInterface.addColumn('cadastros', 'profissao',
+        {
           type: Sequelize.STRING,
-          allowNull: false
-        },
+          allowNull: false,
+        })
 
-        profissao: {
-          type: Sequelize.STRING,
-          allowNull: false
-        },
-
-        comodos: {
+        queryInterface.addColumn('cadastros', 'comodos',
+        {
           type: Sequelize.INTEGER,
-          allowNull: false
-        },
+          allowNull: false,
+        })
 
-        rede_esgoto: {
-          type: Sequelize.STRING,
-          allowNull: false
-        },
+        queryInterface.addColumn('cadastros', 'rede_esgoto',
+        {
+          type: Sequelize.BOOLEAN,
+          allowNull: false,
+        })
 
-        coleta_lixo: {
-          type: Sequelize.STRING,
-          allowNull: false
-        },
+        queryInterface.addColumn('cadastros', 'coleta_lixo',
+        {
+          type: Sequelize.BOOLEAN,
+          allowNull: false,
+        })
 
-        distancia_moradia: {
+        queryInterface.addColumn('cadastros', 'distancia_moradia',
+        {
           type: Sequelize.STRING, //Verificar tipo de dado
-          allowNull: false
-        },
+          allowNull: false,
+        })
 
-        id_religiao: {
-          type: Sequelize.INTEGER,
+        queryInterface.addColumn('cadastros', 'religiao',
+        {
+          type: Sequelize.STRING,
           allowNull: false,
           references: { model: 'religiao', key: 'id' },
           onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
-        },
+        })
 
-        id_raca: {
-          type: Sequelize.INTEGER,
+        queryInterface.addColumn('cadastros', 'raca',
+        {
+          type: Sequelize.STRING,
           allowNull: false,
           references: { model: 'racas', key: 'id' },
           onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
-        },
+        })
 
-        id_escolaridade: {
-          type: Sequelize.INTEGER,
+        queryInterface.addColumn('cadastros', 'escolaridade',
+        {
+          type: Sequelize.STRING,
           allowNull: false,
           references: { model: 'escolaridade', key: 'id' },
           onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
-        },
+        })
 
-        id_estado_civil: {
-          type: Sequelize.INTEGER,
+        queryInterface.addColumn('cadastros', 'estado_civil',
+        {
+          type: Sequelize.STRING,
           allowNull: false,
           references: { model: 'estado_civil', key: 'id' },
           onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
-        },
+        })
 
-        id_renda: {
-          type: Sequelize.INTEGER,
+        queryInterface.addColumn('cadastros', 'renda',
+        {
+          type: Sequelize.STRING,
           allowNull: false,
           references: { model: 'renda', key: 'id' },
           onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
-        },
+        })
 
-        id_distancia_moradia: {
+        queryInterface.addColumn('cadastros', 'id_distancia_moradia',
+        {
           type: Sequelize.INTEGER,
           allowNull: false,
           references: { model: 'distancia_moradia', key: 'id' },
           onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
-        },
+        })
 
-        condicao_moradia: {
+        queryInterface.addColumn('cadastros', 'condicao_moradia',
+        {
           type: Sequelize.STRING,
           allowNull: false,
-        },
+        })
 
-        id_agua_domiciliar: {
-          type: Sequelize.INTEGER,
+        queryInterface.addColumn('cadastros', 'agua_domiciliar',
+        {
+          type: Sequelize.STRING,
           allowNull: false,
           references: { model: 'agua_domiciliar', key: 'id' },
           onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
-        },
+        })
 
-        created_at: {
+        queryInterface.addColumn('cadastros', 'created_at',
+        {
           type: Sequelize.DATE,
-          allowNull: false
-        },
+          allowNull: false,
+        })
 
-        updated_at: {
+        queryInterface.addColumn('cadastros', 'updated_at',
+        {
           type: Sequelize.DATE,
-          allowNull: false
-        },
-      })
-  },
+          allowNull: false,
+        })
+      },
+  
 
   down: (queryInterface, Sequelize) => {
 
