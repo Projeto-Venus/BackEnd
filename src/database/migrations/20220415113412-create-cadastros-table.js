@@ -2,29 +2,25 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return await queryInterface.createTable('tb_cadastro',
+    return queryInterface.createTable('cadastros',
 
       {
         id: {
-          type: Sequelize.INTERGER,
+          type: Sequelize.INTEGER,
           allowNull: false,
           autoIncrement: true,
-          primeiryKey: true,
+          primaryKey: true,
         },
 
-        nome_cadastro: {
+        nome: {
           type: Sequelize.STRING,
           allowNull: false
         },
 
-        nome_cadastro: {
-          type: Sequelize.STRING,
-          allowNull: false
-        },
 
-        nome_social_cadastro: {
+        nome_social: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: true
         },
 
         num_cartao_nacional_saude: {
@@ -32,11 +28,11 @@ module.exports = {
           allowNull: false
         },
 
-       cpf: {
+        cpf: {
           type: Sequelize.STRING,
           allowNull: false
         },
-        //aqui realmente é tipo DATE? 
+
         data_nascimento: {
           type: Sequelize.DATE,
           allowNull: false
@@ -76,18 +72,24 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false
         },
-        //falta algo aqui? por ser id de outra tabela
-        tb_usuarios_id_usuario: {
-          type: Sequelize.INTERGER,
-          allowNull: false
-        },
-        //falta algo aqui? por ser id de outra tabela
-        tb_unidade_referencia_id_referencia: {
-          type: Sequelize.INTERGER,
-          allowNull: false
+
+        id_usuario: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: { model: 'usuarios', key: 'id' },
+          onDelete: 'CASCADE',
+          onUpdate: 'CASCADE'
         },
 
-        created_at: {   
+        id_referencia: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: { model: 'unidades_referencia', key: 'id' },
+          onDelete: 'CASCADE',
+          onUpdate: 'CASCADE'
+        },
+
+        created_at: {
           type: Sequelize.DATE,
           allowNull: false
         },
@@ -99,14 +101,10 @@ module.exports = {
       })
   },
 
-   down:(queryInterface, Sequelize) => {
-     
-   }
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
-  
+  down: (queryInterface, Sequelize) => {
+
+    return queryInterface.dropTable('cadastros');
+
+  }
+
 };
